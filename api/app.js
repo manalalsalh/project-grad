@@ -73,16 +73,18 @@ app.use(
 //ضغط البيانات قبل ارسالها من اجل تسريع النقل
 app.use(compression());
 const userRouter = require('./routes/userRoutes');
-const storageRouter= require('./routes/storageRouter')
+const agr_machinRouter = require('./routes/agr_machinRouter')
+const storageRouter = require('./routes/storageRouter')
 //const agriculture_mechanismRouter= require('./routes/agriculture_mechanismRouter')
-const advicesRouter= require('./routes/advicesRouter')
-const careRouter= require('./routes/careRouter')
-const pestsRouter= require('./routes/pestsRouter')
-const type_of_classifyRouter= require('./routes/type_of_classifyRouter')
-const chatRouter= require('./routes/chatRouter')
+const advicesRouter = require('./routes/advicesRouter')
+const careRouter = require('./routes/careRouter')
+const pestsRouter = require('./routes/pestsRouter')
+const type_of_classifyRouter = require('./routes/type_of_classifyRouter')
+const chatRouter = require('./routes/chatRouter')
 
 // 3) ROUTES
 app.use('/', userRouter);
+app.use('/api/v1.0.0/agr_machins', agr_machinRouter);
 app.use('/api/v1.0.0/storages', storageRouter);
 //app.use('/api/v1.0.0/agriculture_mechanisms', agriculture_mechanismRouter);
 app.use('/api/v1.0.0/advices', advicesRouter);
