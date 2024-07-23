@@ -6,7 +6,7 @@ exports.gettype_of_classify = handlerFactory.getOne(Type_of_classify,{path:"pest
 exports.createtype_of_classify = handlerFactory.createOne(Type_of_classify);
 exports.updatetype_of_classify = handlerFactory.updateOne(Type_of_classify);
 exports.deletetype_of_classify = handlerFactory.deleteOne(Type_of_classify);
-exports.getAlltype_of_classify = handlerFactory.getAllpop(Type_of_classify,"pests care agriculture_mechanism");
+exports.getAlltype_of_classify = handlerFactory.getAllpop(Type_of_classify,"pests care");
 exports.defult = catchAsync(async (req, res, next) => {
   //write your code here
   const doc = []

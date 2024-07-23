@@ -14,9 +14,10 @@ exports.addBody = (value) => {
 };
 exports.addVarBody = (variableName, value) => {
   return (req, res, next) => {
-    if (req.params[value]) value = req.params[value];
-    if (value == 'userId') value = req.user._id;
-    req.body[variableName] = value;
+    let newv=value
+    if (req.params[value]) newv = req.params[newv];
+    if (newv == 'userId') newv = req.user._id;
+    req.body[variableName] = newv;
     next();
   };
 };

@@ -17,6 +17,9 @@ router
     authMiddlewers.protect,
     dynamicMiddleware.addVarBody('sender', 'userId'),
     dynamicMiddleware.addVarBody('chat', 'chatId'),
+    // (req,res,next)=>{
+    //   console.log(req.body);
+    // },
     messageController.createmessage
   );
 router

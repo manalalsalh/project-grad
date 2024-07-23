@@ -35,14 +35,14 @@ const type_of_classifySchema = new mongoose.Schema(
       type: String,
       required: [true, 'ادخل وصف'],
     },
-    //الية الزراعة
-    agr_machine: [
-      {
-        type: mongoose.Schema.ObjectId,
-        ref: 'Agr_machin',
-        required: [true, 'type must belong to Agr_machin.'],
-      },
-    ],
+    // //الية الزراعة
+    // agr_machine: [
+    //   {
+    //     type: mongoose.Schema.ObjectId,
+    //     ref: 'Agr_machin',
+    //     required: [true, 'type must belong to Agr_machin.'],
+    //   },
+    // ],
     //العناية
     care: [
       {

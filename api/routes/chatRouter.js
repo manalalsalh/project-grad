@@ -2,6 +2,7 @@ const chatController = require('../controllers/chatController');
 const dynamicMiddleware = require('../middlewares/dynamicMiddleware');
 const authMiddlewers = require('../middlewares/authMiddlewers');
 const messageRouter = require('./messageRouter');
+const { checkcaht } = require('../middlewares/cahtMiddlewre');
 
 const express = require('express');
 const router = express.Router();
@@ -12,6 +13,7 @@ router
   .post(
     authMiddlewers.protect,
     dynamicMiddleware.addVarBody('user1', 'userId'),
+    checkcaht,
     chatController.createchat
   );
 router

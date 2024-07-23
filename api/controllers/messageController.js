@@ -2,8 +2,19 @@ const Message = require('../models/messageModel');
 const AppError = require('../utils/appError');
 const handlerFactory = require('../utils/handlerFactory');
 const catchAsync = require('../utils/catchAsync');
-exports.getmessage = handlerFactory.getOne(Message);
-exports.createmessage = handlerFactory.createOne(Message);
+exports.getmessage = handlerFactory.getOne(Message, {
+  path: 'sender',
+  select: 'name photo -_id',
+});
+// exports.createmessage = handlerFactory.createOne(Message);
+exports.createmessage = catchAsync(async (req, res, next) => {
+  const doc = await Message.create(req.body)
+  const newdoc = await Message.findById(doc._id).populate({
+    path: 'sender',
+    select: 'name photo -_id',
+  })
+  res.status(200).json({ status: 'success', doc: newdoc })
+})
 exports.updatemessage = handlerFactory.updateOne(Message);
 exports.deletemessage = handlerFactory.deleteOne(Message);
 exports.getAllmessage = handlerFactory.getAllpop1(Message, {
